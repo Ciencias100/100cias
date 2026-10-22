@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posada 1°C 🎄</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600;700&family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- EFECTO DE NIEVE CAYENDO -->
+  <div class="snow-container" id="snow"></div>
+
+  <div class="card-container fade-in">
+    
+    <!-- ENCABEZADO -->
+    <header class="header">
+      <span class="badge">✦ FESTIVIDAD NAVIDEÑA ✦</span>
+      <h1 class="festive-title">Posada 1°C</h1>
+      <p class="subtitle">¡Celebremos juntos estas fiestas!</p>
+    </header>
+
+    <div class="divider">🎄 ✨ 🎄</div>
+
+    <!-- DATOS DEL EVENTO -->
+    <section class="event-details">
+      <div class="detail-box">
+        <span class="icon">📅</span>
+        <div>
+          <h3>FECHA</h3>
+          <p>Sábado 5 de Diciembre</p>
+        </div>
+      </div>
+
+      <div class="detail-box">
+        <span class="icon">⏰</span>
+        <div>
+          <h3>HORARIO</h3>
+          <p>2:00 p.m. a 7:00 p.m.</p>
+        </div>
+      </div>
+
+      <div class="detail-box">
+        <span class="icon">📍</span>
+        <div>
+          <h3>LUGAR</h3>
+          <p><strong>Cortijo Santa Ana</strong></p>
+          <a href="https://www.google.com/maps/place/Cortijo+Santa+Ana/@20.7290152,-103.6023411,17z/data=!3m1!4b1!4m6!3m5!1s0x84260329b3aa0c7b:0xa19229737d58b368!8m2!3d20.7290152!4d-103.5997662!16s%2Fg%2F11pqxmpfhz?hl=es&entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-map">
+            Ver Ubicación en Google Maps 🗺️
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE APORTACIÓN Y PAGO -->
+    <section class="payment-card">
+      <h2>Aportación por Persona</h2>
+      <div class="price-tag">$300 MXN</div>
+
+      <div class="bank-details">
+        <h3>Datos para Transferencia</h3>
+        <p class="bank-name">Banco: <strong>BBVA</strong></p>
+        <p class="beneficiary">Beneficiario: <strong>Claudia Alejandra Garay Navarro</strong></p>
+        
+        <div class="info-row">
+          <span>CLABE:</span>
+          <strong id="clabe-text">012 320 02641385941 9</strong>
+          <button onclick="copyClabe()" class="btn-copy" id="btn-copy">Copiar CLABE 📋</button>
+        </div>
+
+        <div class="info-row">
+          <span>Cuenta:</span>
+          <strong>264 138 5941</strong>
+        </div>
+
+        <div class="info-row">
+          <span>No. Tarjeta:</span>
+          <strong>4152 3137 5033 1907</strong>
+        </div>
+
+        <p class="notice">⚠️ Importante: Favor de enviar tu comprobante por mensaje privado una vez realizado el pago.</p>
+      </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+      <p>¡Te esperamos para compartir una tarde llena de alegría!</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
