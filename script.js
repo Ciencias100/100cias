@@ -1,4 +1,3 @@
-// Reproductor de música
 let isPlaying = false;
 const audio = document.getElementById('bg-music');
 const musicBtn = document.getElementById('music-btn');
@@ -6,28 +5,27 @@ const musicBtn = document.getElementById('music-btn');
 function toggleMusic() {
   if (isPlaying) {
     audio.pause();
-    musicBtn.innerHTML = '🎵 Música: OFF';
+    musicBtn.innerHTML = '🎵 MÚSICA: OFF';
     musicBtn.style.background = '#d4af37';
+    musicBtn.style.color = '#0b3c26';
   } else {
     audio.play();
-    musicBtn.innerHTML = '🎶 Música: ON';
+    musicBtn.innerHTML = '🎶 MÚSICA: ON';
     musicBtn.style.background = '#155d3b';
     musicBtn.style.color = '#ffffff';
   }
   isPlaying = !isPlaying;
 }
 
-// Intentar reproducir automáticamente al primer clic en cualquier parte de la pantalla
-document.body.addEventListener('click', function() {
-  if (!isPlaying && audio.paused) {
+// Respaldo de reproducción al primer clic si el usuario presiona cualquier otra parte
+document.body.addEventListener('click', function(e) {
+  if (e.target !== musicBtn && !isPlaying && audio.paused) {
     audio.play().then(() => {
       isPlaying = true;
-      musicBtn.innerHTML = '🎶 Música: ON';
+      musicBtn.innerHTML = '🎶 MÚSICA: ON';
       musicBtn.style.background = '#155d3b';
       musicBtn.style.color = '#ffffff';
-    }).catch(() => {
-      // Autoplay bloqueado por el navegador hasta interacción explícita
-    });
+    }).catch(() => {});
   }
 }, { once: true });
 
