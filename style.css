@@ -1,8 +1,11 @@
 :root {
-  --red-christmas: #8B0000;
-  --gold: #D4AF37;
-  --green-pine: #1b4d3e;
-  --bg-dark: #0f172a;
+  --red-christmas: #b30000;
+  --bright-red: #d90429;
+  --gold: #d4af37;
+  --light-gold: #f3e5ab;
+  --green-pine: #0b3c26;
+  --bright-green: #155d3b;
+  --bg-dark: #0a1f13;
   --card-bg: #ffffff;
   --text-dark: #1e293b;
 }
@@ -11,24 +14,43 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, #0f172a 0%, #1e112a 50%, #1b4d3e 100%);
+  background: radial-gradient(circle at center, #14452f 0%, #082317 60%, #03120b 100%);
   color: var(--text-dark);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 10px;
+  padding: 30px 15px;
   position: relative;
   overflow-x: hidden;
 }
 
-/* EFECTO DE NIEVE */
+/* BOTÓN FLOTANTE MÚSICA */
+.music-toggle-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 100;
+  background: var(--gold);
+  color: var(--green-pine);
+  border: 2px solid #ffffff;
+  padding: 10px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  transition: transform 0.2s;
+}
+.music-toggle-btn:active { transform: scale(0.95); }
+
+/* NIEVE */
 .snow-container {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   pointer-events: none; z-index: 10;
 }
 .snowflake {
-  position: absolute; color: white; opacity: 0.8;
+  position: absolute; color: white; opacity: 0.9;
   font-size: 14px; animation: fall linear infinite;
 }
 @keyframes fall {
@@ -36,118 +58,141 @@ body {
   100% { transform: translateY(100vh) rotate(360deg); }
 }
 
-/* TARJETA PRINCIPAL */
-.card-container {
-  background: var(--card-bg);
-  max-width: 500px;
+/* CONTENEDOR AMPLIO (LLENA LOS LADOS) */
+.main-wrapper {
   width: 100%;
-  border-radius: 28px;
-  padding: 35px 25px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-  border: 3px solid var(--gold);
+  max-width: 680px;
+  margin: 0 auto;
   position: relative;
   z-index: 20;
-  text-align: center;
 }
 
-.fade-in { animation: fadeIn 1s ease forwards; }
+.card-container {
+  background: var(--card-bg);
+  width: 100%;
+  border-radius: 32px;
+  padding: 40px 30px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 0 8px rgba(212, 175, 55, 0.4);
+  border: 4px solid var(--gold);
+  text-align: center;
+  position: relative;
+}
+
+.fade-in { animation: fadeIn 0.8s ease forwards; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
+.garland-top { font-size: 18px; margin-bottom: 10px; }
+
 .badge {
-  background: var(--green-pine);
-  color: var(--gold);
-  font-size: 10px;
-  font-weight: 700;
+  background: var(--red-christmas);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
   letter-spacing: 2px;
-  padding: 6px 14px;
+  padding: 7px 18px;
   border-radius: 20px;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(179,0,0,0.3);
 }
 
 .festive-title {
   font-family: 'Mountains of Christmas', cursive;
-  font-size: 45px;
+  font-size: 56px;
   color: var(--red-christmas);
   margin-top: 10px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  text-shadow: 2px 2px 0px var(--light-gold);
 }
 
-.subtitle { color: #64748b; font-size: 14px; font-weight: 600; }
-.divider { font-size: 18px; margin: 20px 0; color: var(--gold); }
+.subtitle { color: var(--bright-green); font-size: 15px; font-weight: 700; margin-top: 5px; }
+.divider { font-size: 22px; margin: 25px 0; color: var(--gold); }
 
-/* DETALLES DEL EVENTO */
+/* DETALLES Y GRID */
 .event-details { display: flex; flex-direction: column; gap: 18px; margin-bottom: 25px; text-align: left; }
 .detail-box {
-  display: flex; align-items: center; gap: 15px;
-  background: #f8fafc; padding: 15px; border-radius: 16px;
-  border-left: 4px solid var(--red-christmas);
+  display: flex; align-items: center; gap: 18px;
+  background: #f4fbf7; padding: 18px; border-radius: 20px;
+  border-left: 6px solid var(--bright-green);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
 }
-.detail-box .icon { font-size: 26px; }
+.detail-box .icon { font-size: 30px; }
 .detail-box h3 { font-size: 11px; color: #64748b; letter-spacing: 1px; }
-.detail-box p { font-size: 15px; color: var(--text-dark); font-weight: 600; margin-top: 2px; }
+.detail-box p { font-size: 16px; color: var(--text-dark); font-weight: 700; margin-top: 2px; }
 
 .btn-map {
   display: inline-block;
   margin-top: 8px;
-  background: var(--green-pine);
+  background: var(--bright-green);
   color: white;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  padding: 8px 14px;
-  border-radius: 10px;
+  padding: 10px 16px;
+  border-radius: 12px;
   transition: 0.3s;
 }
-.btn-map:hover { background: #13382d; }
+.btn-map:hover { background: var(--green-pine); }
 
-/* PAGO Y APORTACIÓN */
-.payment-card {
-  background: #fffcf2;
-  border: 2px dashed var(--gold);
-  border-radius: 20px;
+/* CONFIRMACIÓN (RSVP) */
+.confirm-box {
+  background: linear-gradient(135deg, var(--red-christmas), var(--bright-red));
+  color: white;
   padding: 20px;
+  border-radius: 20px;
+  margin: 25px 0;
+  box-shadow: 0 8px 20px rgba(179,0,0,0.3);
+}
+.confirm-box h3 { font-family: 'Cinzel', serif; font-size: 16px; letter-spacing: 1px; margin-bottom: 8px; }
+.confirm-box p { font-size: 13px; font-weight: 500; opacity: 0.95; }
+
+/* APORTACIÓN Y PAGO */
+.payment-card {
+  background: #fffdf5;
+  border: 2px dashed var(--gold);
+  border-radius: 24px;
+  padding: 25px;
   margin-top: 20px;
 }
-.payment-card h2 { font-size: 16px; color: var(--red-christmas); }
+.payment-card h2 { font-size: 18px; color: var(--red-christmas); font-family: 'Cinzel', serif; }
 .price-tag {
-  font-size: 30px; font-weight: 800; color: var(--green-pine); margin: 8px 0 15px 0;
+  font-size: 34px; font-weight: 800; color: var(--green-pine); margin: 8px 0 18px 0;
 }
 
-.bank-details { font-size: 13px; color: #334155; text-align: left; }
-.bank-details h3 { font-size: 14px; margin-bottom: 8px; color: var(--text-dark); text-align: center; }
+.bank-details { font-size: 14px; color: #334155; text-align: left; }
+.bank-details h3 { font-size: 15px; margin-bottom: 10px; color: var(--text-dark); text-align: center; }
 .bank-name, .beneficiary { margin-bottom: 6px; }
 
 .info-row {
   background: white;
-  padding: 10px;
-  border-radius: 10px;
-  margin-top: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 10px;
   border: 1px solid #e2e8f0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
 }
 
 .btn-copy {
   background: var(--gold);
-  color: white;
+  color: var(--green-pine);
   border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 11px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 12px;
   cursor: pointer;
   transition: 0.2s;
 }
-.btn-copy:hover { background: #b89628; }
+.btn-copy:hover { background: #b89628; color: white; }
 
 .notice {
-  font-size: 11px;
-  color: #94a3b8;
+  font-size: 12px;
+  color: #718096;
   margin-top: 15px;
   text-align: center;
   font-style: italic;
 }
 
-.footer { margin-top: 25px; font-size: 12px; color: #64748b; font-weight: 600; }
+.footer { margin-top: 30px; font-size: 13px; color: var(--bright-green); font-weight: 700; }
