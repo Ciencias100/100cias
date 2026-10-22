@@ -25,24 +25,25 @@ body {
   overflow-x: hidden;
 }
 
-/* BOTÓN FLOTANTE MÚSICA */
+/* BOTÓN FLOTANTE MÚSICA AGRANDADO */
 .music-toggle-btn {
   position: fixed;
-  top: 15px;
-  right: 15px;
+  top: 20px;
+  right: 20px;
   z-index: 100;
   background: var(--gold);
   color: var(--green-pine);
-  border: 2px solid #ffffff;
-  padding: 10px 16px;
-  border-radius: 30px;
-  font-size: 12px;
+  border: 3px solid #ffffff;
+  padding: 14px 22px;
+  border-radius: 40px;
+  font-size: 15px;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  transition: transform 0.2s;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  transition: transform 0.2s, background 0.3s;
+  letter-spacing: 0.5px;
 }
-.music-toggle-btn:active { transform: scale(0.95); }
+.music-toggle-btn:active { transform: scale(0.92); }
 
 /* NIEVE */
 .snow-container {
@@ -58,7 +59,7 @@ body {
   100% { transform: translateY(100vh) rotate(360deg); }
 }
 
-/* CONTENEDOR AMPLIO (LLENA LOS LADOS) */
+/* CONTENEDOR AMPLIO */
 .main-wrapper {
   width: 100%;
   max-width: 680px;
